@@ -8,7 +8,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  call-build-website-workflow_call:
+  deploy-website:
     uses: ./.github/workflows/build-website-workflow.yml
 
   run-tests:
