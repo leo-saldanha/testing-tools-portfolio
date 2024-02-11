@@ -1,0 +1,27 @@
+name: Build pkmn-help-with-test-ids
+
+on:
+  workflow_call:
+
+jobs:
+  deploy-website:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: leo-saldanha/pkmn-help-with-test-ids
+          token: ${{ secrets.GH_PAT }}
+
+      - uses: docker/setup-buildx-action@v3
+
+      - uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: ./Dockerfile
+          tags: pkmn-help-with-test-ids:latest
+          outputs: type=docker,dest=/tmp/pkmn-help-with-test-ids.tar
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: pkmn-help-with-test-ids
+          path: /tmp/pkmn-help-with-test-ids.tar
