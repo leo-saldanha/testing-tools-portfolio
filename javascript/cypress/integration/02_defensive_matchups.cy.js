@@ -12,4 +12,16 @@ describe("Test 02 - Defensive matchups", () => {
         cy.getByTestId("radio-none").last().click();
         cy.assertTypeMatchup(defensiveMatchups.Poison);
     });
+
+    it("Bug", () => {
+        cy.getByTestId("radio-flying").first().click();
+        cy.getByTestId("radio-none").last().click();
+        cy.assertTypeMatchup(defensiveMatchups.Bug);
+    });
+
+    it("Ground / Grass", () => {
+        cy.getByTestId("radio-flying").first().click();
+        cy.getByTestId("radio-none").last().click();
+        cy.assertTypeMatchup(defensiveMatchups.Bug);
+    });
 });

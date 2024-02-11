@@ -159,6 +159,62 @@
                 "Grass",
                 "Fairy"
             ]
+        },
+        "Bug": {
+            "2x": [
+                "Flying",
+                "Rock",
+                "Fire"
+            ],
+            "1x": [
+                "Normal",
+                "Poison",
+                "Bug",
+                "Ghost",
+                "Steel",
+                "Water",
+                "Electric",
+                "Psychic",
+                "Ice",
+                "Dragon",
+                "Dark",
+                "Fairy"
+            ],
+            "1-2x": [
+                "Fighting",
+                "Ground",
+                "Grass"
+            ]
+        },
+        "GroundGrass": {
+            "4x": [
+                "Ice"
+            ],
+            "2x": [
+                "Flying",
+                "Bug",
+                "Fire"
+            ],
+            "1x": [
+                "Normal",
+                "Fighting",
+                "Poison",
+                "Ghost",
+                "Steel",
+                "Water",
+                "Grass",
+                "Psychic",
+                "Dragon",
+                "Dark",
+                "Fairy"
+            ],
+            "1-2x": [
+                "Ground",
+                "Rock"
+            ],
+            "0x": [
+                "Electric"
+            ]
         }
     }
 }
