@@ -11,30 +11,19 @@ jobs:
   deploy-website:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out website repo
+      - name: Check out pkmn-help-with-test-ids
         uses: actions/checkout@v4
         with:
           repository: leo-saldanha/pkmn-help-with-test-ids
           token: ${{ secrets.GH_PAT }}
+
       - name: Build and launch
         run: docker-compose up -d
-  run-tests:
-    runs-on: ubuntu-latest
-    needs: deploy-website
-    steps:
-      - name: Check out website repo
+
+      - name: Check out testing-tools-portfolio
         uses: actions/checkout@v4
+
       - name: Run Cypress tests
         run: |
-          ls -la
-          netstat -lt
           cd javascript
           docker compose up
-
-    # ref: refs/heads/release
-    #   - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-    #   - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-    #   - name: List files in the repository
-    #     run: |
-    #       ls ${{ github.workspace }}
-    #   - run: echo "🍏 This job's status is ${{ job.status }}."
