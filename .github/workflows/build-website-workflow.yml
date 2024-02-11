@@ -2,6 +2,9 @@ name: Build pkmn-help-with-test-ids
 
 on:
   workflow_call:
+    secrets:
+      token:
+        required: true
 
 jobs:
   deploy-website:
@@ -10,7 +13,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: leo-saldanha/pkmn-help-with-test-ids
-          token: ${{ secrets.GH_PAT }}
+          token: ${{ secrets.token }}
 
       - uses: docker/setup-buildx-action@v3
 

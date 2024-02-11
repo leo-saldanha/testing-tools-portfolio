@@ -8,8 +8,10 @@ on:
     branches: [ "main" ]
 
 jobs:
-  deploy-website:
+  pkmn-help:
     uses: ./.github/workflows/build-website-workflow.yml
+    secrets:
+      token: ${{ secrets.GH_PAT }}
 
   run-tests:
     runs-on: ubuntu-latest
