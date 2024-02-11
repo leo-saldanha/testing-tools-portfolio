@@ -26,7 +26,7 @@ jobs:
 
       - run: |
           docker load --input /tmp/pkmn-help-with-test-ids.tar
-          docker run -d -t pkmn-help-with-test-ids:latest --name website --expose 5173 --network cypress
+          docker run -d -t pkmn-help-with-test-ids:latest --name website -p 5173:5173 --network cypress
 
       - uses: actions/checkout@v4
 
