@@ -8,20 +8,20 @@ describe("Test 02 - Defensive matchups", () => {
     });
 
     it("Poison", () => {
-        cy.getByTestId("radio-poison").first().click();
-        cy.getByTestId("radio-none").last().click();
+        cy.getByTestId("radio-poison").first().forceClick();
+        cy.getByTestId("radio-none").last().forceClick();
         cy.assertTypeMatchup(defensiveMatchups.Poison);
     });
 
     it("Bug", () => {
-        cy.getByTestId("radio-flying").first().click();
-        cy.getByTestId("radio-none").last().click();
+        cy.getByTestId("radio-bug").first().forceClick();
+        cy.getByTestId("radio-none").last().forceClick();
         cy.assertTypeMatchup(defensiveMatchups.Bug);
     });
 
     it("Ground / Grass", () => {
-        cy.getByTestId("radio-flying").first().click();
-        cy.getByTestId("radio-none").last().click();
-        cy.assertTypeMatchup(defensiveMatchups.Bug);
+        cy.getByTestId("radio-ground").first().forceClick();
+        cy.getByTestId("radio-grass").last().forceClick();
+        cy.assertTypeMatchup(defensiveMatchups.GroundGrass);
     });
 });
