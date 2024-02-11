@@ -12,5 +12,5 @@ services:
         volumes:
             - ./:/app
         environment:
-            - "CYPRESS_BASE_URL=http://website:5173"
+            - "CYPRESS_BASE_URL=http://pkmn-help-with-test-ids:5173"
         networks: [cypress]
