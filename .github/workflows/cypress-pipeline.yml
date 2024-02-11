@@ -13,9 +13,7 @@ jobs:
           repository: leo-saldanha/pkmn-help-with-test-ids
           token: ${{ secrets.GH_PAT }}
       - name: Build and launch
-        run: |
-          ls -la
-          docker-compose up -d
+        run: docker-compose up -d
   run-tests:
     runs-on: ubuntu-latest
     steps:
