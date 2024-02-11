@@ -16,9 +16,16 @@ jobs:
         run: |
           ls -la
           docker-compose up -d
-  # run-tests:
-  #   runs-on: ubuntu-latest
-    
+  run-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out website repo
+        uses: actions/checkout@v4
+      - name: Run Cypress tests
+        run: |
+          cd javascript
+          docker compose up
+
     # ref: refs/heads/release
     #   - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
     #   - run: echo "🖥️ The workflow is now ready to test your code on the runner."
