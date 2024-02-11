@@ -1,0 +1,16 @@
+version: "3.8"
+
+networks:
+    cypress:
+        name: cypress
+
+services:
+    cypress-chrome:
+        image: cypress/included:13.6.3
+        # command: "--browser=chrome"
+        working_dir: /app
+        volumes:
+            - ./:/app
+        environment:
+            - "CYPRESS_BASE_URL=http://website:5173"
+        networks: [cypress]
