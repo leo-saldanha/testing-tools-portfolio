@@ -1,0 +1,15 @@
+{
+  "name": "testing-tools-portfolio",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open": "npx cypress open --browser=chrome",
+    "cypress:headless": "npx cypress run --browser=chrome"
+  },
+  "author": "Leonardo Saldanha",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.6.3"
+  }
+}
