@@ -1,0 +1,57 @@
+{
+    "Poliwhirl": {
+        "type": "Water",
+        "stats": {
+            "HP": "65",
+            "Attack": "65",
+            "Defense": "65",
+            "SpecialAttack": "50",
+            "SpecialDefense": "50",
+            "Speed": "90"
+        }
+    },
+    "Snorlax": {
+        "type": "Normal",
+        "stats": {
+            "HP": "160",
+            "Attack": "110",
+            "Defense": "65",
+            "SpecialAttack": "65",
+            "SpecialDefense": "110",
+            "Speed": "30"
+        }
+    },
+    "Magcargo": {
+        "type": [ "Fire", "Rock" ],
+        "stats": {
+            "HP": "60",
+            "Attack": "50",
+            "Defense": "120",
+            "SpecialAttack": "90",
+            "SpecialDefense": "80",
+            "Speed": "30"
+        }
+    },
+    "Ninjask": {
+        "type": [ "Bug", "Flying" ],
+        "stats": {
+            "HP": "61",
+            "Attack": "90",
+            "Defense": "45",
+            "SpecialAttack": "50",
+            "SpecialDefense": "50",
+            "Speed": "160"
+        }
+    },
+    "Pachirisu": {
+        "type": "Electric",
+        "stats": {
+            "HP": "60",
+            "Attack": "45",
+            "Defense": "70",
+            "SpecialAttack": "45",
+            "SpecialDefense": "90",
+            "Speed": "95"
+        }
+    }
+}

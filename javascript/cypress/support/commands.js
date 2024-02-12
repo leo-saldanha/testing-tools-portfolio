@@ -1,4 +1,13 @@
 
+/** Actions **/
+
+Cypress.Commands.add("searchPokedex", (pokemonName) => {
+    cy.getByTestId("page-pokedex").within(($list) => {
+        cy.getByTestId("search-bar").clearAndType(pokemonName);
+        cy.getByTestId(`title-${pokemonName.toLowerCase()}`).should("contain", pokemonName);
+    });
+});
+
 /** Assertions **/
 
 Cypress.Commands.add("assertTypeMatchup", (matchupData) => {
@@ -9,6 +18,29 @@ Cypress.Commands.add("assertTypeMatchup", (matchupData) => {
             });
         }
     }
+});
+
+Cypress.Commands.add("assertPokedexResult", (pokemonData) => {
+    if (Array.isArray(pokemonData.type)) {
+        for (const type of pokemonData.type) {
+            cy.assertPokedexTypeTag(type);
+        }
+    } else {
+        cy.assertPokedexTypeTag(pokemonData.type);
+    }
+
+    let totalValue = 0;
+
+    for (const [stat, value] of Object.entries(pokemonData.stats)) {
+        cy.getByTestId(`text-${String(stat).toLowerCase()}`).should("contain", value);
+        totalValue += parseInt(value);
+    }
+
+    cy.getByTestId("text-total").should("contain", totalValue);
+});
+
+Cypress.Commands.add("assertPokedexTypeTag", (type) => {
+    cy.getByTestId(`tag-${String(type).toLowerCase()}`).should("contain", type);
 });
 
 /** Common **/
