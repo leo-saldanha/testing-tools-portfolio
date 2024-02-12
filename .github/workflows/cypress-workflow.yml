@@ -26,8 +26,8 @@ jobs:
 
       - run: |
           docker load --input /tmp/pkmn-help-with-test-ids.tar
-          docker run -d -t pkmn-help-with-test-ids:latest --name website -p 5173:5173 --network cypress
+          docker compose up -d
 
       - uses: actions/checkout@v4
 
-      - run: docker compose -f javascript/docker-compose.yml up
+      - run: docker compose -f javascript/docker-compose-cypress.yml up
