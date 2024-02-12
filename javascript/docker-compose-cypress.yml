@@ -1,8 +1,8 @@
 version: "3.8"
 
 networks:
-    cypress:
-        name: cypress
+    portfolio:
+        name: portfolio
 
 services:
     cypress-chrome:
@@ -13,4 +13,4 @@ services:
             - ./:/app
         environment:
             - "CYPRESS_BASE_URL=http://website:5173"
-        networks: [cypress]
+        networks: [portfolio]

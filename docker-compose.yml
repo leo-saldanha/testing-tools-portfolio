@@ -1,0 +1,12 @@
+version: "3.8"
+
+networks:
+    portfolio:
+        name: portfolio
+
+services:
+    website:
+        image: pkmn-help-with-test-ids:latest
+        ports:
+            - "5173:5173"
+        networks: [portfolio]
