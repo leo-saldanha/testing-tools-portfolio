@@ -1,5 +1,5 @@
 name: run-cypress
-run-name: Run Cypress tests
+run-name: run-cypress
 
 on:
   schedule:
@@ -27,7 +27,6 @@ jobs:
       - uses: actions/checkout@v4
 
       - run: |
-          ls -la
           docker load --input /tmp/pkmn-help-with-test-ids.tar
           docker compose -f docker-compose.yml up -d
 

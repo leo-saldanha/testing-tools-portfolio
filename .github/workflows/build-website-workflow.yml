@@ -28,3 +28,4 @@ jobs:
         with:
           name: pkmn-help-with-test-ids
           path: /tmp/pkmn-help-with-test-ids.tar
+          retention-days: 3
