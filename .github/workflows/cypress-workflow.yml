@@ -26,7 +26,7 @@ jobs:
 
       - run: |
           docker load --input /tmp/pkmn-help-with-test-ids.tar
-          docker compose up -d
+          docker compose -f docker-compose.yml up -d
 
       - uses: actions/checkout@v4
 
