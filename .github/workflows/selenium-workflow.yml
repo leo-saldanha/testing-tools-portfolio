@@ -1,12 +1,12 @@
-name: run-cypress
-run-name: run-cypress
+name: run-selenium
+run-name: run-selenium
 
 on:
   schedule:
     - cron: "0 9 * * *"
   push:
     paths:
-      - javascript/**
+      - python/**
 
 jobs:
   pkmn-help:
@@ -31,4 +31,4 @@ jobs:
           docker load --input /tmp/pkmn-help-with-test-ids.tar
           docker compose -f docker-compose.yml up -d
 
-      - run: docker compose -f javascript/docker-compose-cypress.yml up
+      - run: docker compose -f python/selenium/docker-compose-selenium.yml up

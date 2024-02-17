@@ -1,9 +1,8 @@
-from pathlib import Path
-
 from . import functions
 
 
-PATH_ROOT = Path(__file__).parents[3]
+PATH_ROOT = functions.CommonFunctions.get_root_path()
+
 BASE_URL_SITE_LOCAL = "localhost"
 BASE_URL_SITE_DOCKER = "website"
 

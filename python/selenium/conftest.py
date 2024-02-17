@@ -16,7 +16,7 @@ def pytest_addoption(parser):
     parser.addoption("--browser",
                      action="store",
                      default="chrome",
-                     help="chrome|firefox")
+                     help="only chrome for now")
     parser.addoption("--headless",
                      action="store_true",
                      default=False,
@@ -35,28 +35,25 @@ def browser_settings(request, env, scope="session"):
 
     if env == "local":
         base_url = BASE_URL_SITE_LOCAL
+
+        options = Options()
+        options.add_argument("--window-size=1920x1080")
+        options.add_argument("--verbose")
+
+        if headless_mode or env == "docker": options.add_argument("--headless")
+
+        if selected_browser == "chrome":
+            name = "Google Chrome"
+            driver = webdriver.Chrome(options=options)
+        else:
+            raise Exception("Invalid --browser option, please use 'chrome' for now")
     elif env == "docker":
+        name = "Google Chrome"
         base_url = BASE_URL_SITE_DOCKER
-        # TODO set up selenium grid
-        # driver = webdriver.Remote(command_executor=f"http://localhost:4444/wd/hub",
-        #                            options=options)
+        driver = webdriver.Remote(command_executor=f"http://localhost:4444",
+                                   options=webdriver.ChromeOptions())
     else:
         raise Exception("Invalid --env option, please use 'local' or 'docker'")
-
-    options = Options()
-    options.add_argument("--window-size=1920x1080")
-    options.add_argument("--verbose")
-    
-    if headless_mode or env == "docker": options.add_argument("--headless")
-
-    if selected_browser == "chrome":
-        name = "Google Chrome"
-        driver = webdriver.Chrome(options=options)
-    elif selected_browser == "firefox":
-        name = "Firefox"
-        # TODO install firefox driver and implement settings
-    else:
-        raise Exception("Invalid --browser option, please use 'chrome' or 'firefox'")
 
     print(f"\nOpening {name}...")
 
