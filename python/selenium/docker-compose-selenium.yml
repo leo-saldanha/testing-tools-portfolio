@@ -1,0 +1,26 @@
+version: "3.8"
+
+networks:
+    portfolio:
+        name: portfolio
+
+services:
+    # selenium-firefox:
+    #     image: selenium/standalone-firefox:dev
+    #     platform: linux/amd64
+    #     shm_size: '2gb'
+    #     ports:
+    #         - "4444:4444"
+    #         - "7900:7900"
+    #     networks: [portfolio]
+    test-runner:
+        build: 
+            context: .
+            dockerfile: ./selenium.Dockerfile
+        working_dir: /app
+        volumes:
+            - ./:/app
+        networks: [portfolio]
+        command: >
+            sh -c "
+                tox -e selenium -- --env=docker --headless"

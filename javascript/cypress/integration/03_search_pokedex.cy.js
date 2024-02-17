@@ -1,4 +1,4 @@
-import allPokemonData from "../fixtures/pokemons.json";
+import allPokemonData from "../../../test_data/pokemons.json";
 
 describe("Test 03 - Search Pokedex", () => {
     beforeEach(() => {

@@ -9,7 +9,6 @@ COPY ./ /app/
 WORKDIR /app
 
 RUN pip install tox>=4
-RUN tox -e selenium
 
 RUN ls -la
 # RUN pip install selenium
