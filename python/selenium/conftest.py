@@ -48,7 +48,7 @@ def browser_settings(request, env, scope="session"):
             raise Exception("Invalid --browser option, please use 'chrome' for now")
     elif env == "docker":
         base_url = BASE_URL_SITE_DOCKER
-        driver = webdriver.Remote(command_executor=f"http://localhost:4444/wd/hub",
+        driver = webdriver.Remote(command_executor=f"http://selenium-hub:4444/wd/hub",
                                   options=ChromeOptions())
     else:
         raise Exception("Invalid --env option, please use 'local' or 'docker'")

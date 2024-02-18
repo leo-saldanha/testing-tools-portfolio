@@ -8,11 +8,10 @@ networks:
 services:
     test-runner:
         build: 
-            context: .
-            dockerfile: ./selenium.Dockerfile
+            context: ../../.
+            dockerfile: ./python/selenium/selenium.Dockerfile
         networks: [portfolio]
-        command: >
-            sh -c "
-                ls -la &&
-                pwd &&
-                tox -e selenium -- --env=docker --headless"
+        command: sh -c "tox -e selenium -- --env=docker --headless"
+        # Allows entering the container to debug if needed
+        stdin_open: true
+        tty: true
