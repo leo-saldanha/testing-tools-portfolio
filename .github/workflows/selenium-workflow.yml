@@ -33,7 +33,7 @@ jobs:
 
       - run: |
           docker load --input /tmp/pkmn-help-with-test-ids.tar
-          docker compose -f docker-compose.yml up -d
+          docker compose -f docker-compose.yml up -d --exit-code-from
 
-      - run: docker compose -f python/selenium/docker-compose-selenium-grid.yml up -d --build
-      - run: docker compose -f python/selenium/docker-compose-selenium-tests.yml up --build
+      - run: docker compose -f python/selenium/docker-compose-selenium-grid.yml up -d --build --exit-code-from
+      - run: docker compose -f python/selenium/docker-compose-selenium-tests.yml up --build --exit-code-from
