@@ -12,11 +12,11 @@ Cypress.Commands.add("searchPokedex", (pokemonName) => {
 
 Cypress.Commands.add("assertTypeMatchup", (matchupData) => {
     for (const [effectiveness, types] of Object.entries(matchupData)) {
-        for (const type of types) {
-            cy.getByTestId(`section-${effectiveness}`).within(($list) => {
+        cy.getByTestId(`section-${effectiveness}`).within(($list) => {
+            for (const type of types) {
                 cy.getByTestId(`result-${type.toLowerCase()}`).should("contain", type);
-            });
-        }
+            }
+        });
     }
 });
 

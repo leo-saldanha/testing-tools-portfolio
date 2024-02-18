@@ -1,5 +1,5 @@
-name: run-cypress
-run-name: run-cypress
+name: run-selenium
+run-name: run-selenium
 
 on:
   schedule:
@@ -7,7 +7,7 @@ on:
   pull_request:
     branches: [ "main" ]
     paths:
-      - javascript/**
+      - python/**
       - .github/workflows/**
       - test_data/**
   workflow_dispatch:
@@ -35,4 +35,5 @@ jobs:
           docker load --input /tmp/pkmn-help-with-test-ids.tar
           docker compose -f docker-compose.yml up -d
 
-      - run: docker compose -f javascript/docker-compose-cypress.yml up --build --exit-code-from=cypress-chrome
+      - run: docker compose -f python/selenium/docker-compose-selenium-grid.yml up -d --build
+      - run: docker compose -f python/selenium/docker-compose-selenium-tests.yml up --build --exit-code-from=test-runner

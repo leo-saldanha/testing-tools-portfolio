@@ -1,4 +1,4 @@
-import matchupData from "../fixtures/type_matchup.json";
+import matchupData from "../../../test_data/type_matchup.json";
 
 const defensiveMatchups = matchupData.Defensive;
 

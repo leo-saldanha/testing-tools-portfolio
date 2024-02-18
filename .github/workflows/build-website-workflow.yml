@@ -5,6 +5,7 @@ on:
     secrets:
       token:
         required: true
+  workflow_dispatch:
 
 jobs:
   deploy-website:
