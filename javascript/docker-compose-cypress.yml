@@ -8,9 +8,9 @@ services:
     cypress-chrome:
         image: cypress/included:13.6.3
         command: "--browser=chrome"
-        working_dir: /app
+        working_dir: /app/javascript
         volumes:
-            - ./:/app
+            - ../.:/app
         environment:
             - "CYPRESS_BASE_URL=http://website:5173"
         networks: [portfolio]
