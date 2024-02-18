@@ -7,7 +7,7 @@ networks:
 
 services:
   chrome:
-    image: seleniarm/node-chromium:latest
+    image: selenium/node-chrome:dev
     shm_size: 2gb
     networks: [portfolio]
     depends_on:
@@ -18,7 +18,7 @@ services:
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
 
   firefox:
-    image: seleniarm/node-firefox:latest
+    image: selenium/node-firefox:dev
     shm_size: 2gb
     networks: [portfolio]
     depends_on:
@@ -29,7 +29,7 @@ services:
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
 
   selenium-hub:
-    image: seleniarm/hub:latest
+    image: selenium/hub:latest
     container_name: selenium-hub
     networks: [portfolio]
     ports:

@@ -1,4 +1,4 @@
-FROM python:3.11
+FROM python:3.6
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -9,7 +9,7 @@ COPY ./ /app/
 WORKDIR /app
 
 RUN pip install --upgrade pip
-RUN pip install tox>=4
+RUN pip install tox
 
 RUN ls -la
 

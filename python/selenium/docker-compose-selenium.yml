@@ -12,4 +12,7 @@ services:
             dockerfile: ./selenium.Dockerfile
         networks: [portfolio]
         command: >
-            sh -c "tox -e selenium -- --env=docker --headless"
+            sh -c "
+                ls -la &&
+                pwd &&
+                tox -e selenium -- --env=docker --headless"
