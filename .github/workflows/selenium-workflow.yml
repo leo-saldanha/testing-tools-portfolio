@@ -2,7 +2,6 @@ name: run-selenium
 run-name: run-selenium
 
 on:
-  workflow_dispatch:
   schedule:
     - cron: "0 9 * * *"
   pull_request:
@@ -10,6 +9,7 @@ on:
       - python/**
       - .github/workflows/**
       - test_data/**
+  workflow_dispatch:
 
 jobs:
   pkmn-help:
