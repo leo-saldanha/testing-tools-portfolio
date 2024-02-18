@@ -35,4 +35,4 @@ jobs:
           docker compose -f docker-compose.yml up -d
 
       - run: docker compose -f python/selenium/docker-compose-selenium-grid.yml up -d --build
-      - run: docker compose -f python/selenium/docker-compose-selenium.yml up --build
+      - run: docker compose -f python/selenium/docker-compose-selenium-tests.yml up --build
