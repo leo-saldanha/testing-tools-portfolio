@@ -31,5 +31,5 @@ jobs:
           docker load --input /tmp/pkmn-help-with-test-ids.tar
           docker compose -f docker-compose.yml up -d
 
-      - run: docker compose -f python/selenium/docker-compose-selenium-grid.yml up
-      - run: docker compose -f python/selenium/docker-compose-selenium.yml up
+      - run: docker compose -f python/selenium/docker-compose-selenium-grid.yml up -d --build
+      - run: docker compose -f python/selenium/docker-compose-selenium.yml up --build
