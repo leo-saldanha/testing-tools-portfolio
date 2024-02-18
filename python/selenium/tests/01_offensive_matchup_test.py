@@ -29,8 +29,6 @@ class TestOffensiveMatchup:
         driver = browser_settings["driver"]
         base_url = browser_settings["base_url"]
 
-        print(f"http://{base_url}:5173/offense")
-
         driver.get(f"http://{base_url}:5173/offense")
         selectTypes(selenium_helper, types)
         assertTypeMatchups(selenium_helper, OFFENSIVE_MATCHUPS[types])

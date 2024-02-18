@@ -1,7 +1,7 @@
 import pytest
 
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.options import Options as ChromeOptions
 
 from common.constants import *
 from common.helper import SeleniumHelper
@@ -32,37 +32,35 @@ def env(request):
 def browser_settings(request, env, scope="session"):
     selected_browser = request.config.getoption("--browser")
     headless_mode = request.config.getoption("--headless")
+    shared_options = []
+
+    if headless_mode or env == "docker": shared_options.append("--headless")
 
     if env == "local":
         base_url = BASE_URL_SITE_LOCAL
-
-        options = Options()
-        options.add_argument("--window-size=1920x1080")
-        options.add_argument("--verbose")
-
-        if headless_mode or env == "docker": options.add_argument("--headless")
-
         if selected_browser == "chrome":
-            name = "Google Chrome"
+            options = ChromeOptions()
+            
+            for option in shared_options: options.add_argument(option)
+            
             driver = webdriver.Chrome(options=options)
         else:
             raise Exception("Invalid --browser option, please use 'chrome' for now")
     elif env == "docker":
-        name = "Google Chrome"
         base_url = BASE_URL_SITE_DOCKER
-        driver = webdriver.Remote(command_executor=f"http://selenium-hub:4444/wd/hub",
-                                   options=webdriver.ChromeOptions())
+        driver = webdriver.Remote(command_executor=f"http://localhost:4444/wd/hub",
+                                  options=ChromeOptions())
     else:
         raise Exception("Invalid --env option, please use 'local' or 'docker'")
 
-    print(f"\nOpening {name}...")
+    print("\nOpening browser...")
 
     yield { "base_url": base_url, "driver": driver }
 
     driver.close()
     driver.quit()
 
-    print("\nQuitting Google Chrome...")
+    print("\nQuitting browser...")
 
 @pytest.fixture
 def selenium_helper(browser_settings, scope="session"):
