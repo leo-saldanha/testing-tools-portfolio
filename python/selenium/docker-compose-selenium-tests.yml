@@ -11,7 +11,7 @@ services:
       context: ../../.
       dockerfile: ./python/selenium/selenium.Dockerfile
     networks: [portfolio]
-    command: sh -c "tox -e selenium -- --env=docker --headless"
+    command: sh -c "tox -e selenium -- --env=docker-ci --headless"
     # Allows entering the container to debug if needed
     stdin_open: true
     tty: true
