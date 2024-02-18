@@ -1,6 +1,7 @@
 name: Build pkmn-help-with-test-ids
 
 on:
+  workflow_dispatch:
   workflow_call:
     secrets:
       token:
