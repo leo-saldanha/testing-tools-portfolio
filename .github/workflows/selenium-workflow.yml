@@ -18,8 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - run: echo "${{ secrets.GH_PAT }}" | docker login ghcr.io -u leo-saldanha --password-stdin
-
+      - run: echo "${{ secrets.GH_PAT }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
       - run: docker compose -f docker-compose.yml up -d
 
       - run: docker compose -f python/selenium/docker-compose-selenium-grid.yml up -d --build
