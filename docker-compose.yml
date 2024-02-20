@@ -6,7 +6,7 @@ networks:
 
 services:
     website:
-        image: pkmn-help-with-test-ids:latest
+        image: ghcr.io/leo-saldanha/pkmn-help-with-test-ids:master
         ports:
             - "5173:5173"
         networks: [portfolio]
