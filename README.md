@@ -11,12 +11,14 @@ The tools are located in subprojects named by their programming languages. Each 
 - [JavaScript (cypress)](./javascript/README.md)
 - [Python (selenium)](./python/README.md)
 
-The subprojects are a reflection of each other, which means they will have the exact same test cases written using different frameworks, which can be great for both learners or people looking for a quick way to compare the syntax of different tools!
+The subprojects are a reflection of each other, which means they will have the exact same test cases written using different frameworks, which can be great for both learners or people looking for a quick way to compare the syntax of different tools! I explain some of the work below. Head to the [Table of Contents](#table-of-contents) for general information.
 
 If you have any questions, please don't hesitate to reach out! :)
 
----
+https://github.com/leo-saldanha/testing-tools-portfolio/assets/149873278/5b38a552-5b07-4717-875b-b99d297c9842
 
+---
+<a name="table-of-contents"/>
 #### Table of Contents  
 [Webpage](#headers)  
 [Emphasis](#emphasis)  
