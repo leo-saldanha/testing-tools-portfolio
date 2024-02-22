@@ -8,7 +8,7 @@ networks:
 services:
   test-runner:
     build: 
-      context: ../../.
+      context: ../.
       dockerfile: ./python/selenium/selenium.Dockerfile
     networks: [portfolio]
     command: sh -c "tox -e selenium -- --env=docker-ci --headless"
