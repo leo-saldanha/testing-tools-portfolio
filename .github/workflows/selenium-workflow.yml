@@ -21,5 +21,5 @@ jobs:
       - run: echo "${{ secrets.GH_PAT }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
       - run: docker compose -f docker-compose.yml up -d
 
-      - run: docker compose -f python/selenium/docker-compose-selenium-grid.yml up -d --build
-      - run: docker compose -f python/selenium/docker-compose-selenium-tests.yml up --build --exit-code-from=test-runner
+      - run: docker compose -f python/docker-compose-selenium-grid.yml up -d --build
+      - run: docker compose -f python/docker-compose-selenium-tests.yml up --build --exit-code-from=test-runner
