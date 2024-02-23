@@ -14,9 +14,12 @@
   <summary>Table of Contents</summary>
   <ol>
     <li><a href="#introduction">Introduction</a></li>
-    <li><a href="#overview"> ➤ Overview</a></li>
-    <li><a href="#project-files-description"> ➤ Project Files Description</a></li>
-    <li><a href="#getting-started"> ➤ Getting Started</a></li>
+    <li><a href="#guides">Guides</a></li>
+    <li><a href="#webapp">Webapp</a></li>
+    <li><a href="#ci">Continuous Integration</a></li>
+    <li><a href="#reporting">Reporting</a></li>
+    <li><a href="#whats-next">What's next?</a></li>
+    <li><a href="#about-me">about me</a></li>
   </ol>
 </details>
 
@@ -26,7 +29,7 @@
 
 <p align="justify">
 
-Welcome! This repository was created to showcase different test automation tools I have either worked with or studied, and use them to test a single web app, as similarly as possible.
+Welcome! This repository was created to showcase different test automation tools I have either worked with or studied, and use them to test a single web application, as similarly as possible.
 
 The tools are located in folders named by their programming languages and for simplicity, I will call them subprojects. 
 
@@ -38,9 +41,31 @@ Head to the [Table of Contents](#table-of-contents) at the top for more detailed
 
 https://github.com/leo-saldanha/testing-tools-portfolio/assets/149873278/5b38a552-5b07-4717-875b-b99d297c9842
 
-<h2 id="instructions">Instructions</h2>
+---
+
+<h2 id="guides">Guides</h2>
 
 <ul>
     <li><a href="./javascript/README.md">JavaScript (cypress)<a></li>
     <li><a href="./python/README.md">Python (selenium)</a></li>
 </ul>
+
+---
+
+<h2 id="webapp">Webapp</h2>
+
+---
+
+<h2 id="ci">Continuous Integration</h2>
+
+---
+
+<h2 id="reporting">Reporting</h2>
+
+---
+
+<h2 id="whats-next">What's next?</h2>
+
+---
+
+<h2 id="about-me">About me</h2>
