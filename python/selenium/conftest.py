@@ -59,15 +59,15 @@ def get_driver_settings(env, selected_browser, shared_options):
         raise Exception("Invalid --browser option, please use 'chrome' for now")
 
     if env == "local":
-        base_url_website = BASE_URL_SITE_LOCAL
+        base_url_website = URL_MASK_WEBSITE.format(BASE_URL_SITE_LOCAL)
         driver = webdriver.Chrome(options=options)
     elif "docker" in env:
         if env == "docker-local": base_url_selenium_grid = "localhost"
         elif env == "docker-ci": base_url_selenium_grid = "selenium-hub"
         else: raise Exception(EXCEPTION_INVALID_ENV)
 
-        base_url_website = BASE_URL_SITE_DOCKER
-        driver = webdriver.Remote(command_executor=f"http://{base_url_selenium_grid}:4444/wd/hub",
+        base_url_website = URL_MASK_WEBSITE.format(BASE_URL_SITE_DOCKER)
+        driver = webdriver.Remote(command_executor=URL_MASK_GRID.format(base_url_selenium_grid),
                                   options=options)
     else:
         raise Exception(EXCEPTION_INVALID_ENV)
