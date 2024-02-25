@@ -1,7 +1,7 @@
 /** Actions **/
 
 Cypress.Commands.add("searchPokedex", (pokemonName) => {
-  cy.getByTestId("page-pokedex").within(($list) => {
+  cy.getByTestId("page-pokedex").within(() => {
     cy.getByTestId("search-bar").clearAndType(pokemonName);
     cy.getByTestId(`title-${pokemonName.toLowerCase()}`).should(
       "contain",
@@ -14,7 +14,7 @@ Cypress.Commands.add("searchPokedex", (pokemonName) => {
 
 Cypress.Commands.add("assertTypeMatchup", (matchupData) => {
   for (const [effectiveness, types] of Object.entries(matchupData)) {
-    cy.getByTestId(`section-${effectiveness}`).within(($list) => {
+    cy.getByTestId(`section-${effectiveness}`).within(() => {
       for (const type of types) {
         cy.getByTestId(`result-${type.toLowerCase()}`).should("contain", type);
       }
@@ -23,25 +23,27 @@ Cypress.Commands.add("assertTypeMatchup", (matchupData) => {
 });
 
 Cypress.Commands.add("assertPokedexResult", (pokemonData) => {
-  if (Array.isArray(pokemonData.type)) {
-    for (const type of pokemonData.type) {
-      cy.assertPokedexTypeTag(type);
-    }
-  } else {
-    cy.assertPokedexTypeTag(pokemonData.type);
-  }
-
   let summedStats = 0;
 
-  for (const [stat, value] of Object.entries(pokemonData.stats)) {
-    cy.getByTestId(`text-${String(stat).toLowerCase()}`).should(
-      "contain",
-      value
-    );
-    summedStats += parseInt(value);
-  }
+  cy.getByTestId(`entry-${pokemonData.id}`).within(() => {
+    if (Array.isArray(pokemonData.type)) {
+      for (const type of pokemonData.type) {
+        cy.assertPokedexTypeTag(type);
+      }
+    } else {
+      cy.assertPokedexTypeTag(pokemonData.type);
+    }
 
-  cy.getByTestId("text-total").should("contain", summedStats);
+    for (const [stat, value] of Object.entries(pokemonData.stats)) {
+      cy.getByTestId(`text-${String(stat).toLowerCase()}`).should(
+        "contain",
+        value
+      );
+      summedStats += parseInt(value);
+    }
+
+    cy.getByTestId("text-total").should("contain", summedStats);
+  });
 });
 
 Cypress.Commands.add("assertPokedexTypeTag", (type) => {
