@@ -31,17 +31,17 @@ Cypress.Commands.add("assertPokedexResult", (pokemonData) => {
     cy.assertPokedexTypeTag(pokemonData.type);
   }
 
-  let totalValue = 0;
+  let summedStats = 0;
 
   for (const [stat, value] of Object.entries(pokemonData.stats)) {
     cy.getByTestId(`text-${String(stat).toLowerCase()}`).should(
       "contain",
       value
     );
-    totalValue += parseInt(value);
+    summedStats += parseInt(value);
   }
 
-  cy.getByTestId("text-total").should("contain", totalValue);
+  cy.getByTestId("text-total").should("contain", summedStats);
 });
 
 Cypress.Commands.add("assertPokedexTypeTag", (type) => {
